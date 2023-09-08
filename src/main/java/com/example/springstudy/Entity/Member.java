@@ -28,17 +28,17 @@ public class Member implements UserDetails {
     private Long memberId;
 
     @Column //회원 이름
-    @NotBlank(message = "이름을 입력하시오.")
+    @NotBlank(message = "이름을 입력해 주세요")
     private String userName;
 
     @Column //회원 비밀번호
-    @NotBlank(message = "비밀번호를 입력하시오.")
-    @Pattern(regexp="^(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$", message = "특수문자 포함한 8글자 이상의 비밀번호를 입력하시오.(사용가능 특수문자 : !@#$%^&*=")
+    @NotBlank(message = "비밀번호를 입력해 주세요")
+    @Pattern(regexp="^(?=.*\\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$", message = "특수문자 포함한 8글자 이상의 비밀번호를 입력해 주세요(사용가능 특수문자 : !@#$%^&*=")
     private String password;
 
     @Column //회원 이메일
-    @NotBlank(message = "이메일을 입력하시오.")
-    @Email(message = "이메일 형식을 맞추세요.")
+    @NotBlank(message = "이메일을 입력해 주세요")
+    @Email(message = "이메일 형식을 맞춰 주세요.")
     private String email;
 
     @Column //회원 전화번호
@@ -47,12 +47,16 @@ public class Member implements UserDetails {
     @Column //회원 프로필 사진
     private String profile;
 
+    @Temporal(TemporalType.DATE)//날짜 타입 0908
     @Column //생성일자
     @NotBlank
-    private String createDate;
+    private java.util.Date createDate;
+    //private String createDate;
 
+    @Temporal(TemporalType.DATE)//날짜 타입 0908
     @Column //수정일자
-    private String updateDate;
+    private java.util.Date updateDate;
+    //private String updateDate;
 
     @Column //위치정보동의
     @NotBlank

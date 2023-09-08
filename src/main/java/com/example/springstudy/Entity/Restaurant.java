@@ -27,27 +27,25 @@ public class Restaurant{
     private Long restaurantId;
 
     @Column //음식점 이름
-    @NotBlank(message = "음식점의 이름을 입력하시오.")
+    @NotBlank(message = "음식점의 이름을 입력해 주세요")
     private String RestaurantName;
 
     @Column //미리보기 이미지
     private String previewImage;
 
+    @Temporal(TemporalType.TIME)//시간 타입 0908
     @Column //오픈시간
     @NotBlank(message = "영업 시작 시간을 입력해 주세요.")
-    private String openTime;
+    private java.util.Date openTime;
 
+    @Temporal(TemporalType.TIME)//시간 타입 0908
     @Column //마감시간
-    @NotBlank(message = "영업 시작 시간을 입력해 주세요.")
-    private String closeTime;
+    @NotBlank(message = "마감 시간을 입력해 주세요.")
+    private java.util.Date closeTime;
 
-    @Column //위도 정보
-    @NotBlank(message = "위도 정보를 입력해 주세요.")
-    private String latitude;
-
-    @Column //경도 정보
-    @NotBlank(message = "경도 정보를 입력해 주세요.")
-    private String longitude;
+    @Column //음식점 주소(도로명) <-위도 경도 통합 주소 0908
+    @NotBlank(message = "음식점의 위치를 입력하시오.")
+    private String address;
 
     @Column //별점
     private String starRating;
