@@ -9,6 +9,9 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -49,21 +52,16 @@ public class Member implements UserDetails {
 
     @Temporal(TemporalType.DATE)//날짜 타입 0908
     @Column //생성일자
-    @NotBlank
-    private java.util.Date createDate;
-    //private String createDate;
+    private LocalDate createDate = LocalDate.now(); //0912 피드백 현재 날짜 자동 입력
 
     @Temporal(TemporalType.DATE)//날짜 타입 0908
     @Column //수정일자
-    private java.util.Date updateDate;
+    private LocalDate updateDate;
     //private String updateDate;
 
     @Column //위치정보동의
     @NotBlank
     private String locationInformationConsent;
-
-
-
 
 
     @Column
